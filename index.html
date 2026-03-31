@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Togg Sınav Quiz</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header id="header">
+    <div class="header-left">
+      <h1>Togg Sınavı</h1>
+      <span class="subtitle">Elektrikli Araç Bilgi Testi</span>
+    </div>
+    <div class="header-right">
+      <div class="timer" id="timer">
+        <span class="timer-icon">⏱</span>
+        <span id="timerDisplay">00:00</span>
+      </div>
+      <div class="lang-toggle" id="langToggle">
+        <button class="lang-btn active" data-lang="tr">TR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+    <span class="progress-text" id="progressText"></span>
+  </div>
+
+  <div class="score-bar">
+    <div class="score-item">
+      <span>Puan:</span> <span id="scoreDisplay">0</span>
+    </div>
+    <div class="score-item">
+      <span>Doğru:</span> <span id="correctCount">0</span>
+    </div>
+    <div class="score-item">
+      <span>Yanlış:</span> <span id="wrongCount">0</span>
+    </div>
+    <div class="score-item">
+      <span>Boş:</span> <span id="emptyCount">0</span>
+    </div>
+  </div>
+
+  <div class="filter-tabs">
+    <button class="filter-btn active" data-filter="all">Tümü</button>
+    <button class="filter-btn" data-filter="motor">Elektrik Motoru</button>
+    <button class="filter-btn" data-filter="batarya">Batarya</button>
+    <button class="filter-btn" data-filter="sarz">Şarj</button>
+    <button class="filter-btn" data-filter="teknoloji">Teknoloji</button>
+    <button class="filter-btn" data-filter="cevre">Çevre</button>
+  </div>
+
+  <div class="question-card" id="questionCard">
+    <div class="question-header">
+      <span class="question-number" id="questionNumber"></span>
+      <span class="question-category" id="questionCategory"></span>
+    </div>
+    <div class="question-text" id="questionText"></div>
+    <div class="question-image" id="questionImage"></div>
+    <div class="options-container" id="optionsContainer"></div>
+    <div class="answer-feedback" id="answerFeedback"></div>
+    <div class="solution-container" id="solutionContainer">
+      <div class="solution-header">Açıklama</div>
+      <div class="solution-text" id="solutionText"></div>
+    </div>
+    <div class="action-buttons">
+      <button class="btn btn-skip" id="skipBtn">Boş Geç</button>
+      <button class="btn btn-show" id="showSolutionBtn">Açıklamayı Göster</button>
+      <button class="btn btn-next" id="nextBtn">Sonraki Soru</button>
+    </div>
+  </div>
+
+  <div class="navigation">
+    <button class="btn btn-prev" id="prevBtn">← Önceki</button>
+    <div class="question-dots" id="questionDots"></div>
+    <button class="btn btn-nav-next" id="nextNavBtn">Sonraki →</button>
+  </div>
+
+  <div class="exam-controls">
+    <button class="btn btn-finish" id="finishExamBtn">Sınavı Bitir</button>
+    <button class="btn btn-review" id="reviewBtn">Gözden Geçir</button>
+  </div>
+</div>
+
+<div class="modal" id="resultModal">
+  <div class="modal-content">
+    <h2>Sınav Sonucu</h2>
+    <div class="result-stats">
+      <div class="result-item">
+        <span class="result-label">Toplam Soru</span>
+        <span class="result-value" id="resultTotal">0</span>
+      </div>
+      <div class="result-item">
+        <span class="result-label">Doğru</span>
+        <span class="result-value correct" id="resultCorrect">0</span>
+      </div>
+      <div class="result-item">
+        <span class="result-label">Yanlış</span>
+        <span class="result-value wrong" id="resultWrong">0</span>
+      </div>
+      <div class="result-item">
+        <span class="result-label">Boş</span>
+        <span class="result-value empty" id="resultEmpty">0</span>
+      </div>
+    </div>
+    <div class="result-grade">
+      <span class="grade-label">Başarı Notu</span>
+      <span class="grade-value" id="resultGrade">0</span>
+    </div>
+    <div class="result-message" id="resultMessage"></div>
+    <div class="modal-buttons">
+      <button class="btn" id="retryBtn">Tekrar Dene</button>
+      <button class="btn btn-primary" id="closeModalBtn">Kapat</button>
+    </div>
+  </div>
+</div>
+
+<script src="questions.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
